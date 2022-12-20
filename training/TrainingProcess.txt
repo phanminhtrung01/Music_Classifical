@@ -1,0 +1,48 @@
+# Model Training
+keras.layers.Input(shape=input_shape),
+        keras.layers.Conv2D(64, (3, 3), padding='same', activation='relu'),
+        keras.layers.BatchNormalization(),
+        keras.layers.MaxPooling2D(pool_size=(2, 2)),
+        keras.layers.BatchNormalization(),
+
+        keras.layers.Conv2D(32, (3, 3), padding='same', activation='relu'),
+        keras.layers.BatchNormalization(),
+        keras.layers.MaxPooling2D(pool_size=(2, 2)),
+        keras.layers.BatchNormalization(),
+
+        keras.layers.Conv2D(32, (3, 3), padding='same', activation='relu'),
+        keras.layers.BatchNormalization(),
+        keras.layers.MaxPooling2D(pool_size=(2, 2)),
+        keras.layers.BatchNormalization(),
+
+        keras.layers.Flatten(),
+        keras.layers.Dense(128, activation='relu'),
+        keras.layers.BatchNormalization(),
+        keras.layers.Dropout(0.5),
+        keras.layers.Dense(units=num_classes, activation='softmax'),
+
+        //////////////////////////=====================///////////////////////
+
+        model.add(keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
+        model.add(keras.layers.MaxPooling2D((3, 3), strides=(2, 2), padding='same'))
+        model.add(keras.layers.BatchNormalization())
+
+        # 2nd conv layer
+        model.add(keras.layers.Conv2D(32, (3, 3), activation='relu'))
+        model.add(keras.layers.MaxPooling2D((3, 3), strides=(2, 2), padding='same'))
+        model.add(keras.layers.BatchNormalization())
+
+        # 3rd conv layer
+        model.add(keras.layers.Conv2D(32, (2, 2), activation='relu'))
+        model.add(keras.layers.MaxPooling2D((2, 2), strides=(2, 2), padding='same'))
+        model.add(keras.layers.BatchNormalization())
+
+        # flatten output and feed it into dense layer
+        model.add(keras.layers.Flatten())
+        model.add(keras.layers.Dense(64, activation='relu'))
+        model.add(keras.layers.Dropout(0.3))
+
+        # output layer
+        model.add(keras.layers.Dense(10, activation='softmax'))
+
+Result Training
